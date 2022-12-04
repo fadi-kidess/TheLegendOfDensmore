@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerStatus : MonoBehaviour
 {
 
-    enum PlayerState
+    public enum PlayerState
     {
-        STILL_ALIVE,
-        NOW_DEAD
+        PLAYER_ALIVE,
+        PLAYER_DEAD
     };
 
    public double player_health;
    public int player_damage;
-    PlayerState player_state;
+   public PlayerState player_state;
     //int evade;
    // int crit;
    // double health_loss;
@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player_state = PlayerState.STILL_ALIVE;
+        player_state = PlayerState.PLAYER_ALIVE;
         player_health = 50;
         player_damage = 15;
         print("Player has entered the dungeon");
@@ -32,7 +32,12 @@ public class Player : MonoBehaviour
     {
         if(player_health <= 0)
         {
-            player_state = PlayerState.NOW_DEAD;
+            player_state = PlayerState.PLAYER_DEAD;
         }
+    }
+
+    public PlayerState GetPlayerState()
+    {
+        return player_state;
     }
 }
