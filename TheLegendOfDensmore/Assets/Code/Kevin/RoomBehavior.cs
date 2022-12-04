@@ -12,7 +12,7 @@ public class RoomBehavior : MonoBehaviour
     public GameObject Enemy2;
     public GameObject Enemy3;
 
-enum RoomState
+public enum RoomState
     {
         COMPLETED,
         UNCOMPLETED,
@@ -20,7 +20,7 @@ enum RoomState
         DISCOVERED
     };
 
-RoomState State;
+public RoomState State;
 float RoomX;
 float RoomY;
 float PlayerX;
