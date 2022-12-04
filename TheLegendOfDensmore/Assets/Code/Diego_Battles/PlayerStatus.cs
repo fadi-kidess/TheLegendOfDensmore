@@ -7,8 +7,8 @@ public class PlayerStatus : MonoBehaviour
 
     enum PlayerState
     {
-        STILL_ALIVE,
-        NOW_DEAD
+        PLAYER_ALIVE,
+        PLAYER_DEAD
     };
 
    public double player_health;
