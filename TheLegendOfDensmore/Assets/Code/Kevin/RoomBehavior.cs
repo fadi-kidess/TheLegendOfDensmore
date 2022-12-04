@@ -22,6 +22,7 @@ float RoomX;
 float RoomY;
 float PlayerX;
 float PlayerY;
+//int temp = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +31,7 @@ float PlayerY;
         State = RoomState.UNDISCOVERED;
         RoomX = transform.position.x;
         RoomY = transform.position.y;
-        PlayerY = Triangle.transform.position.y;
-        PlayerX = Triangle.transform.position.x;
+
         //print ("Room Created");
         //print ("x: "+transform.position.x.ToString()+" y: "+transform.position.y.ToString());
         //Status();
@@ -41,7 +41,9 @@ float PlayerY;
     // Update is called once per frame
     void Update()
     {
-        if (State == RoomState.UNDISCOVERED)
+        PlayerY = Triangle.transform.position.y;
+        PlayerX = Triangle.transform.position.x;
+        if (State != RoomState.COMPLETED)
         {
             UpdateStatus();
         }
@@ -73,11 +75,13 @@ float PlayerY;
             }
             else
             {
-                print ("Happened :)");
+                //print ("Happened :)");
                 State = RoomState.DISCOVERED;
                 Status();
             }
         }
+        //print (PlayerX);
+        //print (PlayerY);
     }
         
         //Status();
