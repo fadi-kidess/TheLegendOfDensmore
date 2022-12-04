@@ -7,18 +7,25 @@ public class Battling : MonoBehaviour
     public GameObject Enemy1;
     public GameObject Enemy2;
     public GameObject Enemy3;
+    public GameObject Player1;
     int num_enemies;
     // Start is called before the first frame update
     void Start()
     {
         print("You started battling");
         num_enemies = 0;
-        if(Enemy1.activeself)
+        if(Enemy1.activeSelf)
         {
             num_enemies++;
-            Enemy1.GetComponent<Enemy>().level;
         }
-        
+        if(Enemy2.activeSelf)
+        {
+            num_enemies++;
+        }
+        if(Enemy3.activeSelf)
+        {
+            num_enemies++;
+        }
 
     }
 
@@ -30,11 +37,5 @@ public class Battling : MonoBehaviour
             num_enemies++;
         }
         //Enemy1.GetComponent<Enemy>().enemy_health
-    }
-
-    void startBattling(int num_enemies)
-    {
-        //do stuff
-        
     }
 }
