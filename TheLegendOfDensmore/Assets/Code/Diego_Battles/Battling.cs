@@ -8,12 +8,14 @@ public class Battling : MonoBehaviour
     public GameObject Enemy2;
     public GameObject Enemy3;
     public GameObject Player1;
-    int num_enemies;
+    public GameObject choice;
+    public int num_enemies;
+    
     // Start is called before the first frame update
     void Start()
     {
-        print("You started battling");
         num_enemies = 0;
+        print("You started battling");
         if(Enemy1.activeSelf)
         {
             num_enemies++;
@@ -26,16 +28,80 @@ public class Battling : MonoBehaviour
         {
             num_enemies++;
         }
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if(Enemy1.activeself)
+        switch(num_enemies) 
         {
-            num_enemies++;
+            case 1:
+            {
+              if(Player1.GetComponent<PlayerStatus>().player_state == PlayerStatus.PlayerState.PLAYER_ALIVE && (Enemy1.GetComponent<Enemy>().enemy_state == Enemy.EnemyState.ALIVE))
+                {
+                    if(choice.GetComponent<TextChoice>().choice() == 1) //battles
+                    {
+                
+                    }
+                    else if(choice.GetComponent<TextChoice>().choice() == 2) //defend
+                    {
+
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                break;
+            }
+
+            case 2:
+            {
+                if(Player1.GetComponent<PlayerStatus>().player_state == PlayerStatus.PlayerState.PLAYER_ALIVE && (Enemy1.GetComponent<Enemy>().enemy_state == Enemy.EnemyState.ALIVE))
+                {
+                    if(choice.GetComponent<TextChoice>().choice() == 1) //battles
+                    {
+                
+                    }
+                    else if(choice.GetComponent<TextChoice>().choice() == 2) //defend 
+                    { 
+
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                break;
+            }
+
+            case 3:
+            {
+                if(Player1.GetComponent<PlayerStatus>().player_state == PlayerStatus.PlayerState.PLAYER_ALIVE && (Enemy1.GetComponent<Enemy>().enemy_state == Enemy.EnemyState.ALIVE))
+                {
+                    if(choice.GetComponent<TextChoice>().choice() == 1) //battles
+                    {
+                
+                    }
+                    else if(choice.GetComponent<TextChoice>().choice() == 2) //defend
+                    {
+
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                break;
+            }
         }
         //Enemy1.GetComponent<Enemy>().enemy_health
+        
+    }
+
+    bool DoesCrit()
+    {
+
+        return true;
     }
 }

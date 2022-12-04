@@ -36,8 +36,8 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
-    public PlayerState GetPlayerState()
-    {
-        return player_state;
-    }
+    // public PlayerState GetPlayerState()
+    // {
+    //     return player_state;
+    // }
 }
