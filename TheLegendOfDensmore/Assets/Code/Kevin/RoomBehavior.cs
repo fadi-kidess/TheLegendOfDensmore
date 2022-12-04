@@ -34,6 +34,9 @@ float PlayerY;
         State = RoomState.UNDISCOVERED;
         RoomX = transform.position.x;
         RoomY = transform.position.y;
+        Enemy1.SetActive(false);
+        Enemy2.SetActive(false);
+        Enemy3.SetActive(false);
 
         //print ("Room Created");
         //print ("x: "+transform.position.x.ToString()+" y: "+transform.position.y.ToString());
@@ -72,17 +75,20 @@ float PlayerY;
             {
                 if (enemynum == 1)
                 {
+                    print ("Enemy one happened");
                     Enemy1.SetActive(true);
                 }
 
                 if (enemynum == 2)
                 {
+                    print ("Enemy two happened");
                     Enemy1.SetActive(true);
                     Enemy2.SetActive(true);
                 }
 
-                if (enemynum == 3);
+                if (enemynum == 3) //comment
                 {
+                    print ("Enemy three happened");
                     Enemy1.SetActive(true);
                     Enemy2.SetActive(true);
                     Enemy3.SetActive(true);
@@ -134,7 +140,6 @@ float PlayerY;
     }
         
         //Status();
-
 
 }
 
