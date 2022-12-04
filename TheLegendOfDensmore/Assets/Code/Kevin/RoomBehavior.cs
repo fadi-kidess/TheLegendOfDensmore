@@ -59,21 +59,29 @@ float PlayerY;
 
     void UpdateStatus()
     {
-        if((PlayerX >= (RoomX - 2.5) && PlayerY >= (RoomY - 2.5)) && (PlayerX <= (RoomX + 2.5) && PlayerY <= (RoomY + 2.5)))
+        if((PlayerX >= (RoomX - 3.75) && PlayerY >= (RoomY - 3.75)) && (PlayerX <= (RoomX + 3.75) && PlayerY <= (RoomY + 3.75)))
         {
             State = RoomState.COMPLETED;
             Status();
         }
 
-        if ((Triangle.transform.position.x + 10) == transform.position.x || (Triangle.transform.position.y + 10) == transform.position.y)
+        if(((PlayerX) >= (RoomX-13.75) && (PlayerY) >= (RoomY-13.75)) && ((PlayerX) <= (RoomX+13.75) && (PlayerY) <= (RoomY+13.75)))
         {
-            print ("Happened :)");
-            State = RoomState.DISCOVERED;
-            Status();
+            if(State == RoomState.COMPLETED)
+            {
+                print(gameObject.name.ToString()+" was discovered but already completed!");
+            }
+            else
+            {
+                print ("Happened :)");
+                State = RoomState.DISCOVERED;
+                Status();
+            }
         }
+    }
         
         //Status();
-        return;
 
-    }
+
 }
+

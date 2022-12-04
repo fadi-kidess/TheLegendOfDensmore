@@ -12,7 +12,6 @@ public class DoorCode : MonoBehaviour
     void Start()
     {
         cam = Camera.main.GetComponent<CameraMove>();
-
     }
 
     // Update is called once per frame
@@ -23,8 +22,8 @@ public class DoorCode : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other){
         if(other.CompareTag("Player")){
-            //cam.minPosition += cameraChange;
-            //cam.maxPosition += cameraChange;
+            cam.minPosition += cameraChange;
+            cam.maxPosition += cameraChange;
             other.transform.position += playerChange;
         }
     }
