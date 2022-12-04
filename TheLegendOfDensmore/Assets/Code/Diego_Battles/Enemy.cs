@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     
     
- enum EnemyState
+public enum EnemyState
     {
         DEAD,
         ALIVE
@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
   public  int enemy_damage;
    // double health_loss; Probably used in the battling function but added here just in case
    // int block; same as above
-    EnemyState enemy_state;
+    public EnemyState enemy_state;
   public  int level;
   public  int lvl_lowerbound; //used for the random number generator of what level the enemy is; used for scaling enemies proportionally to the distance from the first room
   public  int lvl_upperbound; //same as above 

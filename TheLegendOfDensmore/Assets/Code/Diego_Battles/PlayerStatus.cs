@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerStatus : MonoBehaviour
 {
 
-    enum PlayerState
+    public enum PlayerState
     {
         PLAYER_ALIVE,
         PLAYER_DEAD
@@ -13,7 +13,7 @@ public class PlayerStatus : MonoBehaviour
 
    public double player_health;
    public int player_damage;
-    PlayerState player_state;
+   public PlayerState player_state;
     //int evade;
    // int crit;
    // double health_loss;
