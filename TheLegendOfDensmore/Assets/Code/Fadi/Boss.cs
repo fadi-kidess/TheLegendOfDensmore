@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
+	AudioSource audioData;
 	float Timer = 2f;
 	bool isgoingright;
 	
 	public int health = 10;
 	public float time_duration = 2f;
 	public float boss_speed = 0.5f;
+	public int damage = 1;
 	public GameObject plasma;
 	
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioData = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,8 +29,11 @@ public class Boss : MonoBehaviour
 		Timer -= Time.deltaTime;
 		if (Timer <= 0f)
 		{
-		 Instantiate(plasma, transform.position, Quaternion.identity);
+		 GameObject new_plasma = Instantiate(plasma, transform.position, Quaternion.identity);
+		 new_plasma.GetComponent<Plasma>().damage = damage;
+		 
 		 Timer = time_duration;
+		 audioData.Play();
 		}
 		
         if(isgoingright){
