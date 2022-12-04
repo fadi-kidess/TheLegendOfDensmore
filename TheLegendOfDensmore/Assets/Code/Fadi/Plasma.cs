@@ -6,6 +6,7 @@ public class Plasma : MonoBehaviour
 {
     // Start is called before the first frame update
 	public bool goup;
+	public int damage;
     void Start()
     {
          Destroy(gameObject, 3);
@@ -29,13 +30,13 @@ public class Plasma : MonoBehaviour
 			if(col.gameObject.name == "Circle"){
 				print("Player Hit!!");
 				BossPlayer player = col.gameObject.GetComponent<BossPlayer>();
-				player.health--;
+				player.health -= damage;
 			}
 		}else{
 			if(col.gameObject.name == "Professor"){
 				print("Professor Hit!!");
 				Boss boss = col.gameObject.GetComponent<Boss>();
-				boss.health--;
+				boss.health -= damage;
 			}
 		}
     }
