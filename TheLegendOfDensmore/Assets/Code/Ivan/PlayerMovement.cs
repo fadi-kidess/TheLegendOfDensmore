@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement: MonoBehaviour
 {
+    bool ismoving = true;
     public float speed;
     private Rigidbody2D playerRigid;
     private Vector3 change;
+    public GameObject roombehavior; 
     // Start is called before the first frame update
     void Start()
     {   
@@ -19,12 +21,14 @@ public class PlayerMovement: MonoBehaviour
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical"); 
-        if(change != Vector3.zero){
+        if(change != Vector3.zero && ismoving){
             MoveChar();
-        }
-
-        if(RoomBehavior.RoomState == UNCOMPLETED){
-            playerRigid.StopCharacter();
+        }   
+        if(roombehavior.GetComponent<RoomBehavior>().State == RoomBehavior.RoomState.UNCOMPLETED){
+            ismoving = false;
+        } 
+        else if(roombehavior.GetComponent<RoomBehavior>().State == RoomBehavior.RoomState.COMPLETED){
+            ismoving = true;
         }
     }
 
@@ -33,7 +37,4 @@ public class PlayerMovement: MonoBehaviour
         playerRigid.MovePosition(transform.position + change * speed * Time.deltaTime); 
     }
 
-    void StopCharacter(){
-        playerRigid.isKinematic = true;
-    }
 }
