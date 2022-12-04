@@ -63,6 +63,7 @@ float PlayerY;
     {
         if((PlayerX >= (RoomX - 3.75) && PlayerY >= (RoomY - 3.75)) && (PlayerX <= (RoomX + 3.75) && PlayerY <= (RoomY + 3.75)))
         {
+            //void GenerateEnemy();
             //add a condtion that checks if enemies are defeated if true complete else false and uncomplete
             State = RoomState.COMPLETED;
             Status();
@@ -81,9 +82,8 @@ float PlayerY;
                 Status();
             }
         }
-        //print (PlayerX);
-        //print (PlayerY);
     }
+
         
         //Status();
 
