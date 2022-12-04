@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
    // int block; same as above
     Enemy enemy_state;
     int level;
+    int lvl_lowerbound; //used for the random number generator of what level the enemy is; used for scaling enemies proportionally to the distance from the first room
+    int lvl_upperbound; //same as above 
 
 
     
@@ -25,7 +27,7 @@ public class Enemy : MonoBehaviour
     int GetEnemyLevel()
     {
         Random rnd = new Random();
-        int enemy_lvl = rnd.Next(1,3);
+        int enemy_lvl = rnd.Next(1,3); //subject to change when enemy scaling is coded
         return enemy_lvl;
     }
 
