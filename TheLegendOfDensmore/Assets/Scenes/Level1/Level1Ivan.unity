@@ -318,9 +318,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e28d273b6f1414f8d2c984bcc0114f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy_health: 0
-  enemy_damage: 0
-  level: 0
+  enemy_health: 15
+  enemy_damage: 5
+  level: 1
   lvl_lowerbound: 0
   lvl_upperbound: 0
 --- !u!1 &893657684
@@ -434,6 +434,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2936437549707523619, guid: 07098e0122f2cb74ea4fc0894eda7759, type: 3}
   m_PrefabInstance: {fileID: 2936437549177439444}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1532740371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532740364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2acf66d86ca9148e9be38662b3bb93cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player_health: 50
+  player_damage: 15
 --- !u!1 &1846532635
 GameObject:
   m_ObjectHideFlags: 0
