@@ -35,4 +35,9 @@ public class PlayerStatus : MonoBehaviour
             player_state = PlayerState.PLAYER_DEAD;
         }
     }
+
+    public PlayerState GetPlayerState()
+    {
+        return player_state;
+    }
 }
