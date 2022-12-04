@@ -21,7 +21,7 @@ public class PlayerStatus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player_state = PlayerState.STILL_ALIVE;
+        player_state = PlayerState.PLAYER_ALIVE;
         player_health = 50;
         player_damage = 15;
         print("Player has entered the dungeon");
@@ -32,7 +32,7 @@ public class PlayerStatus : MonoBehaviour
     {
         if(player_health <= 0)
         {
-            player_state = PlayerState.NOW_DEAD;
+            player_state = PlayerState.PLAYER_DEAD;
         }
     }
 }

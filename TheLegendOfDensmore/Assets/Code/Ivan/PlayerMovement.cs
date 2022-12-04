@@ -12,7 +12,7 @@ public class PlayerMovement: MonoBehaviour
     {   
         playerRigid = GetComponent<Rigidbody2D>();
     }
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -22,10 +22,17 @@ public class PlayerMovement: MonoBehaviour
         if(change != Vector3.zero){
             MoveChar();
         }
+        if(PlayerStatus.PlayerState == PLAYER_ALIVE && RoomBehavior.RoomState == UNCOMPLETED){
+            playerRigid.StopCharacter();
+        }
     }
 
     void MoveChar()
     {
         playerRigid.MovePosition(transform.position + change * speed * Time.deltaTime); 
+    }
+
+    void StopCharacter(){
+        playerRigid.isKinematic = true;
     }
 }
