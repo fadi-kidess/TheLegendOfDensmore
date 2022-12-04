@@ -66,6 +66,7 @@ float PlayerY;
     {
         if((PlayerX >= (RoomX - 3.75) && PlayerY >= (RoomY - 3.75)) && (PlayerX <= (RoomX + 3.75) && PlayerY <= (RoomY + 3.75)))
         {
+            Triangle.GetComponent<PlayerMovement>().roombehavior = gameObject;
             int enemynum = GenerateEnemy();
             if(enemynum > 0)
             {
