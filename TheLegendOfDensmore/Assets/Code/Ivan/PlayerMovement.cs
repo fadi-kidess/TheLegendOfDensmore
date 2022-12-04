@@ -22,7 +22,8 @@ public class PlayerMovement: MonoBehaviour
         if(change != Vector3.zero){
             MoveChar();
         }
-        if(PlayerStatus.PlayerState == PLAYER_ALIVE && RoomBehavior.RoomState == UNCOMPLETED){
+
+        if(RoomBehavior.RoomState == UNCOMPLETED){
             playerRigid.StopCharacter();
         }
     }
