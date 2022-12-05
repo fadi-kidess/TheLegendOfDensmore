@@ -10,6 +10,9 @@ public class Battling : MonoBehaviour
     public GameObject Player1;
     public GameObject choice;
     public int num_enemies;
+    bool enemy1_block;
+    bool enemy2_block;
+    bool enemy3_block; //used for to store the state of if the enemy is blocking or not
     
     // Start is called before the first frame update
     void Start()
@@ -41,7 +44,7 @@ public class Battling : MonoBehaviour
                 {
                     if(choice.GetComponent<TextChoice>().choice() == 1) //battles
                     {
-                
+                        
                     }
                     else if(choice.GetComponent<TextChoice>().choice() == 2) //defend
                     {
@@ -79,13 +82,53 @@ public class Battling : MonoBehaviour
             {
                 if(Player1.GetComponent<PlayerStatus>().player_state == PlayerStatus.PlayerState.PLAYER_ALIVE && (Enemy1.GetComponent<Enemy>().enemy_state == Enemy.EnemyState.ALIVE))
                 {
+                    enemy1_block = IsBlocking(); //stores the state of if the enemy is blocking or attacking
+
                     if(choice.GetComponent<TextChoice>().choice() == 1) //battles
                     {
-                
+                        if(DoesCrit()) //if the player lands a crit
+                        {
+                            if(enemy1_block) //if the enemy is blocking while the player crits
+                            {
+                                Enemy1.GetComponent<Enemy>().enemy_health -= Player1.GetComponent<PlayerStatus>().player_damage; //half damage * 2x mulitply cancels out
+                            }
+                            else
+                            {
+                                Enemy1.GetComponent<Enemy>().enemy_health -= (Player1.GetComponent<PlayerStatus>().player_damage * 2); //if not blocking, the enemy receives 2x damage
+                            }
+                        }
+                        else //non crit attack
+                        {
+                             if(enemy1_block) //if the enemy is blocking 
+                            {
+                                Enemy1.GetComponent<Enemy>().enemy_health -= (Player1.GetComponent<PlayerStatus>().player_damage / 2); //half damage because the enemy is blocking
+                            }
+                            else
+                            {
+                                Enemy1.GetComponent<Enemy>().enemy_health -= Player1.GetComponent<PlayerStatus>().player_damage; //if not blocking, the enemy receives normal damage
+                            }
+                        }
+
+                    if(enemy1_block)
+                    {
+                        Player1.GetComponent<PlayerStatus>().player_health = Player1.GetComponent<PlayerStatus>().player_health; //if the enemy is blocking, health does not change 
+                    }
+                    else
+                    {
+                        Player1.GetComponent<PlayerStatus>().player_health -= Enemy1.GetComponent<Enemy>().enemy_damage; //player takes set damage from enemy if the enemy isn't blocking
+                    }
+
                     }
                     else if(choice.GetComponent<TextChoice>().choice() == 2) //defend
                     {
-
+                        if(enemy1_block)
+                        {
+                            Player1.GetComponent<PlayerStatus>().player_health = Player1.GetComponent<PlayerStatus>().player_health; //if the enemy is blocking, health does not change 
+                        }
+                        else
+                        {
+                            Player1.GetComponent<PlayerStatus>().player_health -= Enemy1.GetComponent<Enemy>().enemy_damage;
+                        }
                     }
                     else
                     {
@@ -99,9 +142,18 @@ public class Battling : MonoBehaviour
         
     }
 
-    bool DoesCrit()
+    bool DoesCrit() //used to see if the player randomly does a critical damage attack to do 2x damage
     {
+        return true;
+    }
 
+    bool DoesDodge() //used to see if the player "dodges" the attack and avoids all damage
+    {
+        return true;
+    }
+
+    bool IsBlocking() //used to see if an enemy blocks the attack and only takes half damage
+    {
         return true;
     }
 }
