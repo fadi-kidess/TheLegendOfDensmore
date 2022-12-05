@@ -14,6 +14,7 @@ public class Battling : MonoBehaviour
     bool enemy2_block;
     bool enemy3_block; //used for to store the state of if the enemy is blocking or not
     bool player_block; //used to make a multiplier for when the player blocks
+    bool player_evade;
     
     // Start is called before the first frame update
     void Start()
@@ -43,10 +44,106 @@ public class Battling : MonoBehaviour
             {
               if(Player1.GetComponent<PlayerStatus>().player_state == PlayerStatus.PlayerState.PLAYER_ALIVE && ((Enemy1.GetComponent<Enemy>().enemy_state == Enemy.EnemyState.ALIVE) || (Enemy2.GetComponent<Enemy>().enemy_state == Enemy.EnemyState.ALIVE) || (Enemy3.GetComponent<Enemy>().enemy_state == Enemy.EnemyState.ALIVE)))
                 {
+                    enemy1_block = IsBlocking(); //stores the state of if the enemy is blocking or attacking
+                    enemy2_block = IsBlocking();
+                    enemy3_block = IsBlocking();
+
                     if(choice.GetComponent<TextChoice>().choice() == 1) //battles
                     {
-                        
+                        if(DoesCrit()) //if the player lands a crit
+                        {
+                            if(enemy1_block) //if the enemy is blocking while the player crits
+                            {
+                                Enemy1.GetComponent<Enemy>().enemy_health -= Player1.GetComponent<PlayerStatus>().player_damage; //half damage * 2x mulitply cancels out
+                            }
+                            else
+                            {
+                                Enemy1.GetComponent<Enemy>().enemy_health -= (Player1.GetComponent<PlayerStatus>().player_damage * 2); //if not blocking, the enemy receives 2x damage
+                            }
+
+                            if(enemy2_block) //repeat process but for enemy 2
+                            {
+                                Enemy2.GetComponent<Enemy>().enemy_health -= Player1.GetComponent<PlayerStatus>().player_damage; //half damage * 2x mulitply cancels out
+                            }
+                            else
+                            {
+                                Enemy2.GetComponent<Enemy>().enemy_health -= (Player1.GetComponent<PlayerStatus>().player_damage * 2); //if not blocking, the enemy receives 2x damage
+                            }
+
+                            if(enemy3_block)
+                            {
+                                Enemy3.GetComponent<Enemy>().enemy_health -= Player1.GetComponent<PlayerStatus>().player_damage;
+                            }
+                            else
+                            {
+                                Enemy3.GetComponent<Enemy>().enemy_health -= (Player1.GetComponent<PlayerStatus>().player_damage * 2);
+                            }
+
+                        }
+                        else //non crit attack
+                        {
+                            if(enemy1_block) //if the enemy is blocking 
+                            {
+                                Enemy1.GetComponent<Enemy>().enemy_health -= (Player1.GetComponent<PlayerStatus>().player_damage / 2); //half damage because the enemy is blocking
+                            }
+                            else
+                            {
+                                Enemy1.GetComponent<Enemy>().enemy_health -= Player1.GetComponent<PlayerStatus>().player_damage; //if not blocking, the enemy receives normal damage
+                            }
+
+                            if(enemy2_block) //if the enemy is blocking 
+                            {
+                                Enemy2.GetComponent<Enemy>().enemy_health -= (Player1.GetComponent<PlayerStatus>().player_damage / 2); //half damage because the enemy is blocking
+                            }
+                            else
+                            {
+                                Enemy2.GetComponent<Enemy>().enemy_health -= Player1.GetComponent<PlayerStatus>().player_damage; //if not blocking, the enemy receives normal damage
+                            } 
+
+                            if(enemy3_block) //if the enemy is blocking 
+                            {
+                                Enemy3.GetComponent<Enemy>().enemy_health -= (Player1.GetComponent<PlayerStatus>().player_damage / 2); //half damage because the enemy is blocking
+                            }
+                            else
+                            {
+                                Enemy3.GetComponent<Enemy>().enemy_health -= Player1.GetComponent<PlayerStatus>().player_damage; //if not blocking, the enemy receives normal damage
+                            } 
+                        } 
+                     //enemy turn to attack player
+                        if(enemy1_block && enemy2_block && enemy3_block) //both enemies but block for the player to receive no damage
+                        {
+                            Player1.GetComponent<PlayerStatus>().player_health = Player1.GetComponent<PlayerStatus>().player_health; //if the enemy is blocking, health does not change 
+                        }   
+                        else if(enemy1_block && enemy3_block) //only enemy 2 is attacking
+                        {
+                            Player1.GetComponent<PlayerStatus>().player_health -= Enemy2.GetComponent<Enemy>().enemy_damage;
+                        }
+                        else if(enemy2_block && enemy3_block) //only enemy 1 is attacking
+                        {
+                            Player1.GetComponent<PlayerStatus>().player_health -= Enemy1.GetComponent<Enemy>().enemy_damage;
+                        }
+                        else if(enemy1_block && enemy2_block)
+                        {
+                            Player1.GetComponent<PlayerStatus>().player_health -= Enemy3.GetComponent<Enemy>().enemy_damage;
+                        }
+                        else if(enemy1_block)
+                        {
+                            Player1.GetComponent<PlayerStatus>().player_health -= (Enemy3.GetComponent<Enemy>().enemy_damage + Enemy2.GetComponent<Enemy>().enemy_damage); //only enemy 1 blocks
+                        }
+                        else if(enemy2_block)
+                        {
+                            Player1.GetComponent<PlayerStatus>().player_health -= (Enemy3.GetComponent<Enemy>().enemy_damage + Enemy1.GetComponent<Enemy>().enemy_damage); //only enemy 2 blocks
+                        }
+                        else if(enemy3_block)
+                        {
+                            Player1.GetComponent<PlayerStatus>().player_health -= (Enemy1.GetComponent<Enemy>().enemy_damage + Enemy2.GetComponent<Enemy>().enemy_damage); //only enemy 3 blocks
+                        }
+                        else
+                        {
+                            Player1.GetComponent<PlayerStatus>().player_health -= (Enemy1.GetComponent<Enemy>().enemy_damage + Enemy2.GetComponent<Enemy>().enemy_damage + Enemy3.GetComponent<Enemy>().enemy_damage); //player takes set damage from all enemies if the enemy isn't blocking
+                        }
                     }
+                    
                     else if(choice.GetComponent<TextChoice>().choice() == 2) //defend
                     {
 
