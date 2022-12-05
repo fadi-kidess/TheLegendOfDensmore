@@ -12,7 +12,7 @@ public class PlayerStatus : MonoBehaviour
     };
 
    public double player_health;
-   public int player_damage;
+   public double player_damage; 
    public PlayerState player_state;
     //int evade;
    // int crit;
