@@ -72,10 +72,6 @@ public enum EnemyState
         if(enemy_health <= 0)
         {
             enemy_state = EnemyState.DEAD;
-        }
-
-        if(enemy_state == EnemyState.DEAD)
-        {
             enemy_damage = 0;
         }
     }
