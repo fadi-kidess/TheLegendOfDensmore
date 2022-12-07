@@ -40,24 +40,24 @@ public enum EnemyState
         {
             case 1:
             {
-                enemy_health = 15;
-                enemy_damage = 5;
+                enemy_health = 10;
+                enemy_damage = 3;
                 print("Level 1 enemy appeared!");
                 break;
             }
 
             case 2:
             {
-                enemy_health = 20;
-                enemy_damage = 7;
+                enemy_health = 12;
+                enemy_damage = 5;
                 print("Level 2 enemy appeared!");
                 break;
             }
 
             case 3:
             {
-                enemy_health = 25;
-                enemy_damage = 15;
+                enemy_health = 15;
+                enemy_damage = 7;
                 print("Level 3 enemy appeared!");
                 break;
             }
