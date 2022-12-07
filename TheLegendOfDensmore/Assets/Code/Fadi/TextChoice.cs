@@ -10,7 +10,6 @@ public class TextChoice : MonoBehaviour
 	public bool haschosen;
 	
 	bool isright;
-
     // Update is called once per frame
     void Update()
     {
@@ -25,7 +24,7 @@ public class TextChoice : MonoBehaviour
 		}else if(Input.GetKeyDown(KeyCode.Return)  && !haschosen){
 			haschosen = true;
 			Debug.Log(choice());
-			Destroy(transform.GetChild(0).gameObject);
+			transform.GetChild(0).gameObject.SetActive(false);
 		}
     }
 	
@@ -38,5 +37,12 @@ public class TextChoice : MonoBehaviour
 		}else{
 			return 2;
 		}
+	}
+	public void reset(){
+		transform.GetChild(0).gameObject.SetActive(true);
+		haschosen = false;
+		isright = false;
+		right.SetActive(false);
+		left.SetActive(true);
 	}
 }
