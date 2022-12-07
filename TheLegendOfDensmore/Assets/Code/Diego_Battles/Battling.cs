@@ -65,6 +65,9 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
         {
             damage = base_damage;
         }
+
+        
+
         switch(num_enemies) 
         {
             case 3:
