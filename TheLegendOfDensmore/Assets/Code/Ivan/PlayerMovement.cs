@@ -9,9 +9,12 @@ public class PlayerMovement: MonoBehaviour
     private Rigidbody2D playerRigid;
     private Vector3 change;
     public GameObject roombehavior; 
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {   
+        animator = GetComponent<Animator>();
         playerRigid = GetComponent<Rigidbody2D>();
     }
 
@@ -21,14 +24,24 @@ public class PlayerMovement: MonoBehaviour
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical"); 
-        if(change != Vector3.zero && ismoving){
-            MoveChar();
-        }   
+        UpdateAnimationForMove();
         if(roombehavior.GetComponent<RoomBehavior>().State == RoomBehavior.RoomState.UNCOMPLETED){
             ismoving = false;
         } 
         else if(roombehavior.GetComponent<RoomBehavior>().State == RoomBehavior.RoomState.COMPLETED){
             ismoving = true;
+        }
+    }
+
+    void UpdateAnimationForMove(){
+        if(change != Vector3.zero && ismoving){
+            MoveChar();
+            animator.SetFloat("moveX", change.x);
+            animator.SetFloat("moveY", change.y); 
+            animator.SetBool("moving", true);
+        }   
+        else{
+            animator.SetBool("moving", false);
         }
     }
 
