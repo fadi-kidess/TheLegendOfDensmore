@@ -98,7 +98,9 @@ float PlayerY;
             }
 
             //add a condtion that checks if enemies are defeated if true complete else false and uncomplete
+            //if ((Enemy1 == false) && (Enemy2 == false) && (Enemy3 == false))
             State = RoomState.COMPLETED;
+            gameObject.SetActive(true);
             Status();
         }
 
@@ -110,11 +112,18 @@ float PlayerY;
             }
             else
             {
-                //print ("Happened :)");
                 State = RoomState.DISCOVERED;
                 Status();
             }
         }
+
+        if (State == RoomState.UNDISCOVERED)
+        {
+            Status();
+        }
+        //else State = RoomState.UNDISCOVERED;
+        //else
+            //Status();
     }
 
     int GenerateEnemy()
