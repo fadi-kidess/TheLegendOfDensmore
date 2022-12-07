@@ -44,11 +44,13 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
         {
             num_enemies++;
         }
-
-        block_damage = Player1.GetComponent<PlayerStatus>().player_damage * 1.25;
-        base_damage = Player1.GetComponent<PlayerStatus>().player_damage;
-        damage = base_damage;
-        choice.GetComponent<TextChoice>().reset();
+        if(num_enemies > 0) //may need to examine on thursday in case battle does not occur
+        {
+            block_damage = Player1.GetComponent<PlayerStatus>().player_damage * 1.25;
+            base_damage = Player1.GetComponent<PlayerStatus>().player_damage;
+            damage = base_damage;
+            choice.GetComponent<TextChoice>().reset();
+        }
     }
 
     // Update is called once per frame

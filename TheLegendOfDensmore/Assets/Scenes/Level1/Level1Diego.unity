@@ -434,7 +434,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &193478097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1782,6 +1782,7 @@ MonoBehaviour:
   Player1: {fileID: 1016740499}
   choice: {fileID: 1691769812}
   num_enemies: 1
+  damage: 0
 --- !u!4 &660392319
 Transform:
   m_ObjectHideFlags: 0
