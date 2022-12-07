@@ -352,8 +352,10 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
 
                     if(choice.GetComponent<TextChoice>().choice() == 1) //battles
                     {
+                        print("Player is attacking");
                         if(DoesCrit()) //if the player lands a crit
                         {
+                            print("Player landed a crit");
                             if(enemy1_block) //if the enemy is blocking while the player crits
                             {
                                 Enemy1.GetComponent<Enemy>().enemy_health -= damage; //half damage * 2x mulitply cancels out
@@ -365,6 +367,7 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
                         }
                         else //non crit attack
                         {
+                            print("no crit");
                              if(enemy1_block) //if the enemy is blocking 
                             {
                                 Enemy1.GetComponent<Enemy>().enemy_health -= (damage / 2); //half damage because the enemy is blocking
@@ -377,32 +380,40 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
                     //enemy turn to hurt the player
                     if(player_evade)
                     {
+                        print("Player dodged");
                         break;
                     }
                     if(enemy1_block)
                     {
+                        print("enemy is blocking");
                         break;
                     }
                     else
                     {
+                        print("enemy hurt player");
                         Player1.GetComponent<PlayerStatus>().player_health -= Enemy1.GetComponent<Enemy>().enemy_damage; //player takes set damage from enemy if the enemy isn't blocking
                         break;
                     }
                     player_block = false;
+                  //  choice.GetComponent<TextChoice>().reset();
+
                     }
                     else if(choice.GetComponent<TextChoice>().choice() == 2) //defend
                     {
                         if(enemy1_block)
                         {
+                           print("both are blocking");
                             break;
                         }
                         else
                         {
+                            print("enemy is attacking player");
                             Player1.GetComponent<PlayerStatus>().player_health -= (Enemy1.GetComponent<Enemy>().enemy_damage / 2); //if player defends, only takes half damage
                             break;
                         }
 
                         player_block = true;
+                     //  choice.GetComponent<TextChoice>().reset();
                     }
 
                     else
