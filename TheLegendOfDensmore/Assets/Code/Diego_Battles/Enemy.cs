@@ -73,6 +73,7 @@ public enum EnemyState
         {
             enemy_state = EnemyState.DEAD;
             enemy_damage = 0;
+            gameObject.SetActive(false);
         }
     }
 }

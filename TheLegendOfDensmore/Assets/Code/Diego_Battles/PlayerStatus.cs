@@ -23,7 +23,7 @@ public class PlayerStatus : MonoBehaviour
     {
         player_state = PlayerState.PLAYER_ALIVE;
         player_health = 50;
-        player_damage = 15;
+        player_damage = 15; //make 15
         print("Player has entered the dungeon");
     }
 
