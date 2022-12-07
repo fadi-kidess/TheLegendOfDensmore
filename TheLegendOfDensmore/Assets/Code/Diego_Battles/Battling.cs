@@ -15,7 +15,18 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
     bool enemy3_block; //used for to store the state of if the enemy is blocking or not
     bool player_block; //used to make a multiplier for when the player blocks
     bool player_evade;
+    double block_damage;
+    double base_damage;
+    double damage;
     
+
+
+//player.getcomp.damage replace with damage
+
+//if player_block == true, damage = block damage else 
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,11 +44,24 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
         {
             num_enemies++;
         }
+
+        block_damage = Player1.GetComponent<PlayerStatus>().player_damage * 1.25;
+        base_damage = Player1.GetComponent<PlayerStatus>().player_damage;
+        damage = base_damage;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if(player_block)
+        {
+            damage = block_damage;
+        }
+        else
+        {
+            damage = base_damage;
+        }
         switch(num_enemies) 
         {
             case 3:
@@ -55,29 +79,29 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
                         {
                             if(enemy1_block) //if the enemy is blocking while the player crits
                             {
-                                Enemy1.GetComponent<Enemy>().enemy_health -= Player1.GetComponent<PlayerStatus>().player_damage; //half damage * 2x mulitply cancels out
+                                Enemy1.GetComponent<Enemy>().enemy_health -= damage; //half damage * 2x mulitply cancels out
                             }
                             else
                             {
-                                Enemy1.GetComponent<Enemy>().enemy_health -= (Player1.GetComponent<PlayerStatus>().player_damage * 2); //if not blocking, the enemy receives 2x damage
+                                Enemy1.GetComponent<Enemy>().enemy_health -= (damage * 2); //if not blocking, the enemy receives 2x damage
                             }
 
                             if(enemy2_block) //repeat process but for enemy 2
                             {
-                                Enemy2.GetComponent<Enemy>().enemy_health -= Player1.GetComponent<PlayerStatus>().player_damage; //half damage * 2x mulitply cancels out
+                                Enemy2.GetComponent<Enemy>().enemy_health -= damage; //half damage * 2x mulitply cancels out
                             }
                             else
                             {
-                                Enemy2.GetComponent<Enemy>().enemy_health -= (Player1.GetComponent<PlayerStatus>().player_damage * 2); //if not blocking, the enemy receives 2x damage
+                                Enemy2.GetComponent<Enemy>().enemy_health -= (damage * 2); //if not blocking, the enemy receives 2x damage
                             }
 
                             if(enemy3_block)
                             {
-                                Enemy3.GetComponent<Enemy>().enemy_health -= Player1.GetComponent<PlayerStatus>().player_damage;
+                                Enemy3.GetComponent<Enemy>().enemy_health -= damage;
                             }
                             else
                             {
-                                Enemy3.GetComponent<Enemy>().enemy_health -= (Player1.GetComponent<PlayerStatus>().player_damage * 2);
+                                Enemy3.GetComponent<Enemy>().enemy_health -= (damage * 2);
                             }
 
                         }
@@ -85,29 +109,29 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
                         {
                             if(enemy1_block) //if the enemy is blocking 
                             {
-                                Enemy1.GetComponent<Enemy>().enemy_health -= (Player1.GetComponent<PlayerStatus>().player_damage / 2); //half damage because the enemy is blocking
+                                Enemy1.GetComponent<Enemy>().enemy_health -= (damage / 2); //half damage because the enemy is blocking
                             }
                             else
                             {
-                                Enemy1.GetComponent<Enemy>().enemy_health -= Player1.GetComponent<PlayerStatus>().player_damage; //if not blocking, the enemy receives normal damage
+                                Enemy1.GetComponent<Enemy>().enemy_health -= damage; //if not blocking, the enemy receives normal damage
                             }
 
                             if(enemy2_block) //if the enemy is blocking 
                             {
-                                Enemy2.GetComponent<Enemy>().enemy_health -= (Player1.GetComponent<PlayerStatus>().player_damage / 2); //half damage because the enemy is blocking
+                                Enemy2.GetComponent<Enemy>().enemy_health -= (damage / 2); //half damage because the enemy is blocking
                             }
                             else
                             {
-                                Enemy2.GetComponent<Enemy>().enemy_health -= Player1.GetComponent<PlayerStatus>().player_damage; //if not blocking, the enemy receives normal damage
+                                Enemy2.GetComponent<Enemy>().enemy_health -= damage; //if not blocking, the enemy receives normal damage
                             } 
 
                             if(enemy3_block) //if the enemy is blocking 
                             {
-                                Enemy3.GetComponent<Enemy>().enemy_health -= (Player1.GetComponent<PlayerStatus>().player_damage / 2); //half damage because the enemy is blocking
+                                Enemy3.GetComponent<Enemy>().enemy_health -= (damage / 2); //half damage because the enemy is blocking
                             }
                             else
                             {
-                                Enemy3.GetComponent<Enemy>().enemy_health -= Player1.GetComponent<PlayerStatus>().player_damage; //if not blocking, the enemy receives normal damage
+                                Enemy3.GetComponent<Enemy>().enemy_health -= damage; //if not blocking, the enemy receives normal damage
                             } 
                         } 
                      //enemy turn to attack player
@@ -154,6 +178,8 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
                             Player1.GetComponent<PlayerStatus>().player_health -= (Enemy1.GetComponent<Enemy>().enemy_damage + Enemy2.GetComponent<Enemy>().enemy_damage + Enemy3.GetComponent<Enemy>().enemy_damage); //player takes set damage from all enemies if the enemy isn't blocking
                             break;
                         }
+
+                        player_block = false;
                     }
                     
                     else if(choice.GetComponent<TextChoice>().choice() == 2) //defend
@@ -197,6 +223,8 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
                             Player1.GetComponent<PlayerStatus>().player_health -= ((Enemy1.GetComponent<Enemy>().enemy_damage + Enemy2.GetComponent<Enemy>().enemy_damage + Enemy3.GetComponent<Enemy>().enemy_damage) / 2); //player takes set damage from all enemies if the enemy isn't blocking
                             break;
                         }
+
+                        player_block = true;
                     }
                     else
                     {
@@ -219,40 +247,40 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
                         {
                             if(enemy1_block) //if the enemy is blocking while the player crits
                             {
-                                Enemy1.GetComponent<Enemy>().enemy_health -= Player1.GetComponent<PlayerStatus>().player_damage; //half damage * 2x mulitply cancels out
+                                Enemy1.GetComponent<Enemy>().enemy_health -= damage; //half damage * 2x mulitply cancels out
                             }
                             else
                             {
-                                Enemy1.GetComponent<Enemy>().enemy_health -= (Player1.GetComponent<PlayerStatus>().player_damage * 2); //if not blocking, the enemy receives 2x damage
+                                Enemy1.GetComponent<Enemy>().enemy_health -= (damage * 2); //if not blocking, the enemy receives 2x damage
                             }
 
                             if(enemy2_block) //repeat process but for enemy 2
                             {
-                                Enemy2.GetComponent<Enemy>().enemy_health -= Player1.GetComponent<PlayerStatus>().player_damage; //half damage * 2x mulitply cancels out
+                                Enemy2.GetComponent<Enemy>().enemy_health -= damage; //half damage * 2x mulitply cancels out
                             }
                             else
                             {
-                                Enemy2.GetComponent<Enemy>().enemy_health -= (Player1.GetComponent<PlayerStatus>().player_damage * 2); //if not blocking, the enemy receives 2x damage
+                                Enemy2.GetComponent<Enemy>().enemy_health -= (damage * 2); //if not blocking, the enemy receives 2x damage
                             }
                         }
                         else //non crit attack
                         {
                             if(enemy1_block) //if the enemy is blocking 
                             {
-                                Enemy1.GetComponent<Enemy>().enemy_health -= (Player1.GetComponent<PlayerStatus>().player_damage / 2); //half damage because the enemy is blocking
+                                Enemy1.GetComponent<Enemy>().enemy_health -= (damage / 2); //half damage because the enemy is blocking
                             }
                             else
                             {
-                                Enemy1.GetComponent<Enemy>().enemy_health -= Player1.GetComponent<PlayerStatus>().player_damage; //if not blocking, the enemy receives normal damage
+                                Enemy1.GetComponent<Enemy>().enemy_health -= damage; //if not blocking, the enemy receives normal damage
                             }
 
                              if(enemy2_block) //if the enemy is blocking 
                             {
-                                Enemy2.GetComponent<Enemy>().enemy_health -= (Player1.GetComponent<PlayerStatus>().player_damage / 2); //half damage because the enemy is blocking
+                                Enemy2.GetComponent<Enemy>().enemy_health -= (damage / 2); //half damage because the enemy is blocking
                             }
                             else
                             {
-                                Enemy2.GetComponent<Enemy>().enemy_health -= Player1.GetComponent<PlayerStatus>().player_damage; //if not blocking, the enemy receives normal damage
+                                Enemy2.GetComponent<Enemy>().enemy_health -= damage; //if not blocking, the enemy receives normal damage
                             }
                         }
                     //enemy turn to attack player
@@ -280,6 +308,8 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
                         break;
                     }
 
+                    player_block = false;
+
                     }
                     else if(choice.GetComponent<TextChoice>().choice() == 2) //defend
                     {
@@ -302,6 +332,8 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
                             Player1.GetComponent<PlayerStatus>().player_health -= Enemy1.GetComponent<Enemy>().enemy_damage;
                             break;
                         }
+
+                        player_block = true;
                     }
                     else
                     {
@@ -324,22 +356,22 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
                         {
                             if(enemy1_block) //if the enemy is blocking while the player crits
                             {
-                                Enemy1.GetComponent<Enemy>().enemy_health -= Player1.GetComponent<PlayerStatus>().player_damage; //half damage * 2x mulitply cancels out
+                                Enemy1.GetComponent<Enemy>().enemy_health -= damage; //half damage * 2x mulitply cancels out
                             }
                             else
                             {
-                                Enemy1.GetComponent<Enemy>().enemy_health -= (Player1.GetComponent<PlayerStatus>().player_damage * 2); //if not blocking, the enemy receives 2x damage
+                                Enemy1.GetComponent<Enemy>().enemy_health -= (damage * 2); //if not blocking, the enemy receives 2x damage
                             }
                         }
                         else //non crit attack
                         {
                              if(enemy1_block) //if the enemy is blocking 
                             {
-                                Enemy1.GetComponent<Enemy>().enemy_health -= (Player1.GetComponent<PlayerStatus>().player_damage / 2); //half damage because the enemy is blocking
+                                Enemy1.GetComponent<Enemy>().enemy_health -= (damage / 2); //half damage because the enemy is blocking
                             }
                             else
                             {
-                                Enemy1.GetComponent<Enemy>().enemy_health -= Player1.GetComponent<PlayerStatus>().player_damage; //if not blocking, the enemy receives normal damage
+                                Enemy1.GetComponent<Enemy>().enemy_health -= damage; //if not blocking, the enemy receives normal damage
                             }
                         }
                     //enemy turn to hurt the player
@@ -356,7 +388,7 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
                         Player1.GetComponent<PlayerStatus>().player_health -= Enemy1.GetComponent<Enemy>().enemy_damage; //player takes set damage from enemy if the enemy isn't blocking
                         break;
                     }
-
+                    player_block = false;
                     }
                     else if(choice.GetComponent<TextChoice>().choice() == 2) //defend
                     {
@@ -369,7 +401,10 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
                             Player1.GetComponent<PlayerStatus>().player_health -= (Enemy1.GetComponent<Enemy>().enemy_damage / 2); //if player defends, only takes half damage
                             break;
                         }
+
+                        player_block = true;
                     }
+
                     else
                     {
                         return;
