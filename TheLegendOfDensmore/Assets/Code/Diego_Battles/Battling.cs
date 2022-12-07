@@ -17,7 +17,7 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
     bool player_evade;
     double block_damage;
     double base_damage;
-    double damage;
+    public double damage;
     
 
 
@@ -76,10 +76,12 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
 
                     if(choice.GetComponent<TextChoice>().choice() == 1) //battles
                     {
+                        print("HELLO******");
                         if(DoesCrit()) //if the player lands a crit
                         {
                             if(enemy1_block) //if the enemy is blocking while the player crits
                             {
+                                print("THE ENEMY IS BLOCKING****");
                                 Enemy1.GetComponent<Enemy>().enemy_health -= damage; //half damage * 2x mulitply cancels out
                             }
                             else
@@ -110,6 +112,8 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
                         {
                             if(enemy1_block) //if the enemy is blocking 
                             {
+                                print ("THE ATTACK LANDED*****");
+                                print (Enemy1.name);
                                 Enemy1.GetComponent<Enemy>().enemy_health -= (damage / 2); //half damage because the enemy is blocking
                             }
                             else
