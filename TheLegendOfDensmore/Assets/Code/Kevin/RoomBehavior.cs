@@ -121,9 +121,6 @@ float PlayerY;
         {
             Status();
         }
-        //else State = RoomState.UNDISCOVERED;
-        //else
-            //Status();
     }
 
     int GenerateEnemy()
