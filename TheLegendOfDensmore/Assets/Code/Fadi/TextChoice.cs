@@ -47,7 +47,6 @@ public class TextChoice : MonoBehaviour
 		isright = false;
 		right.SetActive(false);
 		left.SetActive(true);
-		finished = false;
 	}
 	public void deactivate(){
 		transform.GetChild(0).gameObject.SetActive(false);
