@@ -27,6 +27,7 @@ public class Healthbar : MonoBehaviour
     {
 		
 		if(!is_boss){
+			print(health_max);
         	health.size = (float)(player_status.player_health/health_max);
 		}else{
 			health.size = (float)( boss_code.health/health_max);
