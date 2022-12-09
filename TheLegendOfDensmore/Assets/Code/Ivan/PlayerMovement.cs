@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PlayerMovement: MonoBehaviour
 {
-    bool ismoving = true;
+    public bool ismoving = true;
     public float speed;
     private Rigidbody2D playerRigid;
     private Vector3 change;
     public GameObject roombehavior; 
     private Animator animator;
+    public GameObject Enemy1;
+    public GameObject Enemy2;
+    public GameObject Enemy3;
 
     // Start is called before the first frame update
     void Start()
