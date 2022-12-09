@@ -230,6 +230,11 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
                     {
                         return;
                     }
+                    if(Enemy1.GetComponent<Enemy>().enemy_health <=0 && Enemy2.GetComponent<Enemy>().enemy_health <= 0 && Enemy3.GetComponent<Enemy>().enemy_health <= 0)
+                    {
+                        choice.GetComponent<TextChoice>().deactivate();
+                        Player1.GetComponent<PlayerMovement>().ismoving = true;
+                    }
                 }
                 break;
             }
@@ -334,6 +339,11 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
                     else
                     {
                         return;
+                    }
+                    if(Enemy1.GetComponent<Enemy>().enemy_health <=0 && Enemy2.GetComponent<Enemy>().enemy_health <= 0)
+                    {
+                        choice.GetComponent<TextChoice>().deactivate();
+                        Player1.GetComponent<PlayerMovement>().ismoving = true;
                     }
                 }
                 break;
