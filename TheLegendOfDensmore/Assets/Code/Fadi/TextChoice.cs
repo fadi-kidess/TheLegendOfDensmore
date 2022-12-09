@@ -9,10 +9,13 @@ public class TextChoice : MonoBehaviour
 	
 	public bool haschosen;
 	
+	bool finished;
 	bool isright;
     // Update is called once per frame
     void Update()
     {
+		if(finished)
+			return;
         if(Input.GetKeyDown(KeyCode.RightArrow) && !haschosen){
 			right.SetActive(true);
 			left.SetActive(false);
@@ -44,5 +47,9 @@ public class TextChoice : MonoBehaviour
 		isright = false;
 		right.SetActive(false);
 		left.SetActive(true);
+	}
+	public void deactivate(){
+		transform.GetChild(0).gameObject.SetActive(false);
+		finished = true;
 	}
 }
