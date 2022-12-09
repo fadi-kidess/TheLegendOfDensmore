@@ -29,12 +29,6 @@ public class PlayerMovement: MonoBehaviour
         change.y = Input.GetAxisRaw("Vertical"); 
         UpdateAnimationForMove();
         
-        if(roombehavior.GetComponent<RoomBehavior>().State == RoomBehavior.RoomState.UNCOMPLETED){
-            ismoving = false;
-        } 
-        else if(roombehavior.GetComponent<RoomBehavior>().State == RoomBehavior.RoomState.COMPLETED){
-            ismoving = true;
-        }
     }
 
     void UpdateAnimationForMove(){
