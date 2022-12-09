@@ -57,6 +57,7 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
     void Update()
     {
 
+
         if(player_block)
         {
             damage = block_damage;
