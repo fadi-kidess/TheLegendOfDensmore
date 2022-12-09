@@ -411,12 +411,12 @@ public class Battling : MonoBehaviour //must add break statements to the multi-e
                         return;
                     }
                 }
-                if(Enemy1.activeSelf == false)
-                {
-                    choice.GetComponent<TextChoice>().deactivate();
-                }
+                // if(Enemy1.activeSelf == false)
+                // {
+                //     choice.GetComponent<TextChoice>().deactivate();
+                // }
         
-                break;
+                // break;
             }
         }
         //Enemy1.GetComponent<Enemy>().enemy_health
