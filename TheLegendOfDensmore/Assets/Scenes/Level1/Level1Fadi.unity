@@ -868,6 +868,7 @@ GameObject:
   - component: {fileID: 1763394785}
   - component: {fileID: 1763394786}
   - component: {fileID: 1763394787}
+  - component: {fileID: 1763394788}
   m_Layer: 0
   m_Name: Professor
   m_TagString: Untagged
@@ -1112,7 +1113,7 @@ Animator:
   m_GameObject: {fileID: 1763394780}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0fc3cf3e31fcfe64db1b79861bfc56d5, type: 2}
+  m_Controller: {fileID: 9100000, guid: ed6006743a5a8f343b5043f7f3f20680, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1122,6 +1123,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &1763394788
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763394780}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 679925038ba87034ba2b010df134bdf4, type: 2}
+  m_Animations:
+  - {fileID: 0}
+  - {fileID: 0}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &1887235797
 PrefabInstance:
   m_ObjectHideFlags: 0
