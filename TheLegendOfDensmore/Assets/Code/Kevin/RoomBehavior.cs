@@ -25,12 +25,14 @@ float RoomX;
 float RoomY;
 float PlayerX;
 float PlayerY;
+int rannum;
+//int enemynum = GenerateEnemy();
 //int temp = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
         State = RoomState.UNDISCOVERED;
         RoomX = transform.position.x;
         RoomY = transform.position.y;
@@ -72,6 +74,7 @@ float PlayerY;
             gameObject.GetComponent<Battling>().enabled = true;
             Triangle.GetComponent<PlayerMovement>().roombehavior = gameObject;
             int enemynum = GenerateEnemy();
+            rannum = enemynum;
             if(enemynum > 0)
             {
                 if (enemynum == 1)
@@ -110,6 +113,7 @@ float PlayerY;
             if(State == RoomState.COMPLETED)
             {
                 //print(gameObject.name.ToString()+" was discovered but already completed!");
+                Potion();
             }
             else
             {
@@ -144,6 +148,13 @@ float PlayerY;
         print(num+" Enemies");
 
         return num;
+    }
+
+    void Potion()
+    {
+        int ponum = rannum * 5;
+        Triangle.GetComponent<PlayerStatus>().player_health += ponum;
+        return;
     }
         
         //Status();

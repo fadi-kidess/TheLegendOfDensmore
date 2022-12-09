@@ -5,20 +5,31 @@ using UnityEngine.UI;
 public class Healthbar : MonoBehaviour
 {
 	public Scrollbar health;
-	public PlayerStatus player; 
+	PlayerStatus player_status; 
+	Boss boss_code;
+	public GameObject player;
+	public bool is_boss;
+	public GameObject boss;
    	double health_max = -1;
     // Start is called before the first frame update
     // Update is called once per frame
+	void Start()
+	{
+		if(!is_boss){
+			player_status = player.GetComponent<PlayerStatus>();
+			health_max = player_status.player_health;
+		}else{
+			boss_code = boss.GetComponent<Boss>();
+			health_max = boss_code.health;
+		}
+	}
     void Update()
     {
-		GameObject cam = GameObject.Find("Main Camera");
-		if(cam.name != "Main Camera") return;
-		player = (PlayerStatus)cam.GetComponent(typeof(PlayerStatus));
-		player = cam.GetComponent<PlayerStatus>();
-		if(health_max == -1){
-			health_max = player.player_health;
-		}
 		
-        health.size = (float)(player.player_health/health_max);
+		if(!is_boss){
+        	health.size = (float)(player_status.player_health/health_max);
+		}else{
+			health.size = (float)( boss_code.health/health_max);
+		}
     }
 }
