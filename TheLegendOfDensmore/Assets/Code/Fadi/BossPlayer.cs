@@ -8,9 +8,7 @@ public class BossPlayer : MonoBehaviour
 	float player_speed = 1;
 	float timer = 0f;
 	
-	
-	
-	public int health = 20;
+	public int health = 50;
 	public GameObject plasma;
 	public float plasma_wait = 1.0f;
 	public int damage = 1;
@@ -42,5 +40,6 @@ public class BossPlayer : MonoBehaviour
 		} else{
 			transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * player_speed,0,0);
 		}
+		gameObject.GetComponent<PlayerStatus>().player_health = (double)health;
 	}
 }
