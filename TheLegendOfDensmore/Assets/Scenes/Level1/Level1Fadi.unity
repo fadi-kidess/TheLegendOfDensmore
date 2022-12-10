@@ -868,7 +868,6 @@ GameObject:
   - component: {fileID: 1763394785}
   - component: {fileID: 1763394786}
   - component: {fileID: 1763394787}
-  - component: {fileID: 1763394788}
   m_Layer: 0
   m_Name: Professor
   m_TagString: Untagged
@@ -1027,7 +1026,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.23156083
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -1123,23 +1122,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!111 &1763394788
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1763394780}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 679925038ba87034ba2b010df134bdf4, type: 2}
-  m_Animations:
-  - {fileID: 0}
-  - {fileID: 0}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1001 &1887235797
 PrefabInstance:
   m_ObjectHideFlags: 0
