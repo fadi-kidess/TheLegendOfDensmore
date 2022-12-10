@@ -165,7 +165,7 @@ int rannum;
 
             if (num <= 50)
             {
-                float health_recovered = rannum * 7.5;
+                double health_recovered = rannum * 7.5;
                 if (Triangle.GetComponent<PlayerStatus>().player_health == Triangle.GetComponent<PlayerStatus>().max_health)
                 {
                     return;
