@@ -14,6 +14,7 @@ public class PlayerStatus : MonoBehaviour
    public double player_health;
    public double player_damage; 
    public double max_health;
+   public double base_damage;
    public PlayerState player_state;
 
     //int evade;
@@ -26,7 +27,8 @@ public class PlayerStatus : MonoBehaviour
         player_state = PlayerState.PLAYER_ALIVE;
         max_health = 50;
         player_health = max_health;
-        player_damage = 15; 
+        base_damage = 15;
+        player_damage = base_damage; 
         print("Player has entered the dungeon");
     }
 
