@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PlayerMovement: MonoBehaviour
 {
-    bool ismoving = true;
+    public bool ismoving = true;
     public float speed;
     private Rigidbody2D playerRigid;
     private Vector3 change;
     public GameObject roombehavior; 
     private Animator animator;
+    public GameObject Enemy1;
+    public GameObject Enemy2;
+    public GameObject Enemy3;
 
     // Start is called before the first frame update
     void Start()
@@ -26,12 +29,6 @@ public class PlayerMovement: MonoBehaviour
         change.y = Input.GetAxisRaw("Vertical"); 
         UpdateAnimationForMove();
         
-        if(roombehavior.GetComponent<RoomBehavior>().State == RoomBehavior.RoomState.UNCOMPLETED){
-            ismoving = false;
-        } 
-        else if(roombehavior.GetComponent<RoomBehavior>().State == RoomBehavior.RoomState.COMPLETED){
-            ismoving = true;
-        }
     }
 
     void UpdateAnimationForMove(){

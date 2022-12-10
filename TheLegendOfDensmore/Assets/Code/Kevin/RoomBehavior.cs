@@ -136,13 +136,13 @@ int rannum;
             print ("Happened here");
             num = 0;
         }
-        else if ((num > 0) && (num <= 50))
+        else if ((num > 0) && (num <= 25))
             num = 0;
-        else if ((num > 50) && (num <= 80))
+        else if ((num > 25) && (num <= 70))
             num = 1;
-        else if ((num > 80) && (num <= 95))
+        else if ((num > 70) && (num <= 90))
             num = 2;
-        else if (num > 95)
+        else if (num > 90)
             num = 3;
 
         print(num+" Enemies");
@@ -152,8 +152,24 @@ int rannum;
 
     void Potion()
     {
-        int ponum = rannum * 5;
-        Triangle.GetComponent<PlayerStatus>().player_health += ponum;
+        int num = Random.Range(1,100);
+
+        if(num>30)
+        {
+            return;
+        }
+        int health_recovered = rannum * 7.5;
+        if (Triangle.GetComponent<PlayerStatus>().player_health == Triangle.GetComponent<PlayerStatus>().max_health)
+        {
+            return;
+        }
+        else if(Triangle.GetComponent<PlayerStatus>().player_health + health_recovered >= Triangle.GetComponent<PlayerStatus>().max_health)
+        {
+            Triangle.GetComponent<PlayerStatus>().player_health = Triangle.GetComponent<PlayerStatus>().max_health;
+            return;
+        }
+        else
+        Triangle.GetComponent<PlayerStatus>().player_health += health_recovered;
         return;
     }
         
