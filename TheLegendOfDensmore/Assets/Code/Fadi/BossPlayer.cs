@@ -24,6 +24,8 @@ public class BossPlayer : MonoBehaviour
     {
 		timer += Time.deltaTime;
 		if(health <= 0){
+			GameObject win = GameObject.Find("Lose");
+			win.GetComponent<Animator>().SetBool("lose",true);
 			Destroy(gameObject);
 		}
 		if(Input.GetKeyDown(KeyCode.Space) && timer > plasma_wait){

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 87d07fb2aa2294c2380fea9b3f63cda8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Black Knight
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 50cd24602c86f4cf88e2640e5b573830, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
