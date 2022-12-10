@@ -38,6 +38,8 @@ public class PlayerStatus : MonoBehaviour
         if(player_health <= 0)
         {
             player_state = PlayerState.PLAYER_DEAD;
+            GameObject win = GameObject.Find("Lose");
+			win.GetComponent<Animator>().SetBool("lose",true);
         }
     }
 
