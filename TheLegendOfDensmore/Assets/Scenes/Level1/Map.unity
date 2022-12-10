@@ -2291,7 +2291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy1: {fileID: 1916895303}
   Enemy2: {fileID: 2096112738}
-  Enemy3: {fileID: 0}
+  Enemy3: {fileID: 1690636489}
   Player1: {fileID: 1507941743}
   choice: {fileID: 1338436361}
   num_enemies: 0
