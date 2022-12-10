@@ -13,11 +13,14 @@ public class Boss : MonoBehaviour
 	public float boss_speed = 0.5f;
 	public int damage = 1;
 	public GameObject plasma;
+
+	Animator ani;
 	
     // Start is called before the first frame update
     void Start()
     {
         audioData = GetComponent<AudioSource>();
+		ani = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,13 +30,21 @@ public class Boss : MonoBehaviour
 			Destroy(gameObject);
 		}
 		Timer -= Time.deltaTime;
+
 		if (Timer <= 0f)
 		{
-		 GameObject new_plasma = Instantiate(plasma, transform.position, Quaternion.identity);
-		 new_plasma.GetComponent<Plasma>().damage = damage;
+		 ani.SetBool("Attacking", true);
 		 
-		 Timer = time_duration;
-		 audioData.Play();
+		  GameObject new_plasma = Instantiate(plasma, transform.position, Quaternion.identity);
+		  new_plasma.GetComponent<Plasma>().damage = damage;
+		 
+		  Timer = time_duration;
+		  audioData.Play();
+
+		}
+		else
+		{
+			ani.SetBool("Attacking", false);
 		}
 		
         if(isgoingright){
