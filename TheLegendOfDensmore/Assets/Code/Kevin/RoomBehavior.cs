@@ -163,9 +163,9 @@ int rannum;
         {
             num = Random.Range(1,100);
 
-            if (num <= 50)
+            if ((num <= 50) && (rannum == 0))
             {
-                double health_recovered = rannum * 7.5;
+                int health_recovered = rannum * 10;
                 if (Triangle.GetComponent<PlayerStatus>().player_health == Triangle.GetComponent<PlayerStatus>().max_health)
                 {
                     return;
@@ -179,13 +179,32 @@ int rannum;
                 Triangle.GetComponent<PlayerStatus>().player_health += health_recovered;
                 return;
             }
-            else if ((num > 50) && (num <= 75))
+            else if ((num > 50) && (num <= 75) && (rannum == 0))
             {
-                //
+                Triangle.GetComponent<PlayerStatus>().player_damage += 5;
+                return;
+            }
+            else if((num > 75) && (rannum == 0))
+            {
+                Triangle.GetComponent<PlayerStatus>().max_health += 5;
+                Triangle.GetComponent<PlayerStatus>().player_health += 5;
+                return;
             }
             else
             {
-
+                int health_recovered = rannum * 5;
+                if (Triangle.GetComponent<PlayerStatus>().player_health == Triangle.GetComponent<PlayerStatus>().max_health)
+                {
+                    return;
+                }
+                else if(Triangle.GetComponent<PlayerStatus>().player_health + health_recovered >= Triangle.GetComponent<PlayerStatus>().max_health)
+                {
+                    Triangle.GetComponent<PlayerStatus>().player_health = Triangle.GetComponent<PlayerStatus>().max_health;
+                    return;
+                }
+                else
+                Triangle.GetComponent<PlayerStatus>().player_health += health_recovered;
+                return;
             }
         }
     }
