@@ -27,6 +27,8 @@ public class Boss : MonoBehaviour
     void Update()
     {
 		if(health <= 0){
+			GameObject win = GameObject.Find("Win");
+			win.GetComponent<Animator>().SetBool("win",true);
 			Destroy(gameObject);
 		}
 		Timer -= Time.deltaTime;
