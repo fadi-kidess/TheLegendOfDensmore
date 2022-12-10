@@ -113,7 +113,7 @@ int rannum;
             if(State == RoomState.COMPLETED)
             {
                 //print(gameObject.name.ToString()+" was discovered but already completed!");
-                Potion();
+                LootDrop();
             }
             else
             {
@@ -150,27 +150,44 @@ int rannum;
         return num;
     }
 
-    void Potion()
+    void LootDrop()
     {
+
         int num = Random.Range(1,100);
 
         if(num>30)
         {
             return;
         }
-        int health_recovered = rannum * 7.5;
-        if (Triangle.GetComponent<PlayerStatus>().player_health == Triangle.GetComponent<PlayerStatus>().max_health)
-        {
-            return;
-        }
-        else if(Triangle.GetComponent<PlayerStatus>().player_health + health_recovered >= Triangle.GetComponent<PlayerStatus>().max_health)
-        {
-            Triangle.GetComponent<PlayerStatus>().player_health = Triangle.GetComponent<PlayerStatus>().max_health;
-            return;
-        }
         else
-        Triangle.GetComponent<PlayerStatus>().player_health += health_recovered;
-        return;
+        {
+            num = Random.Range(1,100);
+
+            if (num <= 50)
+            {
+                float health_recovered = rannum * 7.5;
+                if (Triangle.GetComponent<PlayerStatus>().player_health == Triangle.GetComponent<PlayerStatus>().max_health)
+                {
+                    return;
+                }
+                else if(Triangle.GetComponent<PlayerStatus>().player_health + health_recovered >= Triangle.GetComponent<PlayerStatus>().max_health)
+                {
+                    Triangle.GetComponent<PlayerStatus>().player_health = Triangle.GetComponent<PlayerStatus>().max_health;
+                    return;
+                }
+                else
+                Triangle.GetComponent<PlayerStatus>().player_health += health_recovered;
+                return;
+            }
+            else if ((num > 50) && (num <= 75))
+            {
+                //
+            }
+            else
+            {
+
+            }
+        }
     }
         
         //Status();
