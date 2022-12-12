@@ -41,7 +41,7 @@ public enum EnemyState
             case 1:
             {
                 enemy_health = 20; //was 10
-                enemy_damage = 2; //was 3
+                enemy_damage = 3; //was 3
                 print("Level 1 enemy appeared!");
                 break;
             }
