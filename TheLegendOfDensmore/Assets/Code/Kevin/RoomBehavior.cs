@@ -11,6 +11,7 @@ public class RoomBehavior : MonoBehaviour
     public GameObject Enemy1;
     public GameObject Enemy2;
     public GameObject Enemy3;
+    public GameObject popup;
 
 public enum RoomState
     {
@@ -166,6 +167,7 @@ int rannum;
             if ((num <= 50) && (rannum == 0))
             {
                 int health_recovered = 15;
+                popup.GetComponent<PopupManager>().create("You Found a Potion + 15 Health!");
                 if (Triangle.GetComponent<PlayerStatus>().player_health == Triangle.GetComponent<PlayerStatus>().max_health)
                 {
                     return;
@@ -181,11 +183,13 @@ int rannum;
             }
             else if ((num > 50) && (num <= 75) && (rannum == 0))
             {
+                popup.GetComponent<PopupManager>().create("You Found a Damage Upgrade + 5 Damage!");
                 Triangle.GetComponent<PlayerStatus>().player_damage += 5;
                 return;
             }
             else if((num > 75) && (rannum == 0))
             {
+                popup.GetComponent<PopupManager>().create("You Found a Health Upgrade + 5 Max Health!");
                 Triangle.GetComponent<PlayerStatus>().max_health += 5;
                 Triangle.GetComponent<PlayerStatus>().player_health += 5;
                 return;
@@ -193,6 +197,7 @@ int rannum;
             else
             {
                 int health_recovered = 15;
+                popup.GetComponent<PopupManager>().create("You Gained a Burst of Adrenaline + 15 Health!");
                 if (Triangle.GetComponent<PlayerStatus>().player_health == Triangle.GetComponent<PlayerStatus>().max_health)
                 {
                     return;
