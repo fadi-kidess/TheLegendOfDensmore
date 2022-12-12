@@ -155,7 +155,7 @@ int rannum;
 
         int num = Random.Range(1,100);
 
-        if(num>30)
+        if(num>50)
         {
             return;
         }
@@ -165,7 +165,7 @@ int rannum;
 
             if ((num <= 50) && (rannum == 0))
             {
-                int health_recovered = rannum * 10;
+                int health_recovered = rannum * 15;
                 if (Triangle.GetComponent<PlayerStatus>().player_health == Triangle.GetComponent<PlayerStatus>().max_health)
                 {
                     return;
