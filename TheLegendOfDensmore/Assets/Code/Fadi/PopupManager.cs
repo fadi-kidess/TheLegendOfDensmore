@@ -12,7 +12,7 @@ public class PopupManager : MonoBehaviour
     }
 
     
-	void create(string text){
+	public void create(string text){
 		GameObject p = Instantiate(popup);
 		p.GetComponent<RectTransform>().anchoredPosition = popup.GetComponent<RectTransform>().anchoredPosition;
 		p.transform.parent = gameObject.transform;
