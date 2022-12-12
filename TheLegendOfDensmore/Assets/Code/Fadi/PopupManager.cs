@@ -8,7 +8,7 @@ public class PopupManager : MonoBehaviour
 	public GameObject popup;
     void Start()
     {
-        create("HELLOOO");
+        //create("HELLOOO");
     }
 
     
