@@ -11,7 +11,7 @@ public class Popup : MonoBehaviour
 	
     void Start()
     {
-		Destroy(gameObject,5);
+		Destroy(gameObject,1);
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class Popup : MonoBehaviour
     {
 		gameObject.GetComponent<TMP_Text>().text = popup_text;
 		prev_t = t;
-		t -= Time.deltaTime*50;
+		t -= Time.deltaTime*150;
 		if(t > prev_t){
 		t = 0;
 		}
