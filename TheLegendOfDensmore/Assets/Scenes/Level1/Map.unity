@@ -2582,6 +2582,7 @@ MonoBehaviour:
   Enemy3: {fileID: 1690636489}
   Player1: {fileID: 1507941743}
   choice: {fileID: 1338436361}
+  popup: {fileID: 2147321566}
   num_enemies: 0
   damage: 0
 --- !u!1 &654241682
@@ -3085,6 +3086,7 @@ MonoBehaviour:
   Enemy3: {fileID: 542645453}
   Player1: {fileID: 1507941743}
   choice: {fileID: 1338436361}
+  popup: {fileID: 2147321566}
   num_enemies: 0
   damage: 0
 --- !u!1 &764044025
@@ -3339,6 +3341,7 @@ MonoBehaviour:
   Enemy3: {fileID: 925529525}
   Player1: {fileID: 1507941743}
   choice: {fileID: 1338436361}
+  popup: {fileID: 2147321566}
   num_enemies: 0
   damage: 0
 --- !u!1 &779379460
@@ -4006,6 +4009,7 @@ RectTransform:
   - {fileID: 1338436360}
   - {fileID: 2116687070}
   - {fileID: 1668507969}
+  - {fileID: 2147321567}
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4504,6 +4508,7 @@ MonoBehaviour:
   Enemy3: {fileID: 1701734849}
   Player1: {fileID: 1507941743}
   choice: {fileID: 1338436361}
+  popup: {fileID: 2147321566}
   num_enemies: 0
   damage: 0
 --- !u!1 &960366357
@@ -4755,6 +4760,7 @@ MonoBehaviour:
   Enemy3: {fileID: 2095758619}
   Player1: {fileID: 1507941743}
   choice: {fileID: 1338436361}
+  popup: {fileID: 2147321566}
   num_enemies: 0
   damage: 0
 --- !u!1 &1007646513
@@ -5255,6 +5261,7 @@ MonoBehaviour:
   Enemy3: {fileID: 1541934423}
   Player1: {fileID: 1507941743}
   choice: {fileID: 1338436361}
+  popup: {fileID: 2147321566}
   num_enemies: 0
   damage: 0
 --- !u!1 &1146449162
@@ -5982,6 +5989,10 @@ PrefabInstance:
     - target: {fileID: 8222914488080029050, guid: 6a4526d66634d46f18d7fece63993de8, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8222914488080029051, guid: 6a4526d66634d46f18d7fece63993de8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -217
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a4526d66634d46f18d7fece63993de8, type: 3}
@@ -7221,6 +7232,7 @@ MonoBehaviour:
   Enemy3: {fileID: 460787104}
   Player1: {fileID: 1507941743}
   choice: {fileID: 1338436361}
+  popup: {fileID: 2147321566}
   num_enemies: 0
   damage: 0
 --- !u!1 &1474801665
@@ -9497,6 +9509,7 @@ MonoBehaviour:
   Enemy3: {fileID: 1103268643}
   Player1: {fileID: 1507941743}
   choice: {fileID: 1338436361}
+  popup: {fileID: 2147321566}
   num_enemies: 0
   damage: 0
 --- !u!1 &1800431323
@@ -9782,6 +9795,7 @@ MonoBehaviour:
   Enemy3: {fileID: 4119795}
   Player1: {fileID: 1507941743}
   choice: {fileID: 1338436361}
+  popup: {fileID: 2147321566}
   num_enemies: 0
   damage: 0
 --- !u!1 &1893340622
@@ -10229,6 +10243,7 @@ MonoBehaviour:
   Enemy3: {fileID: 823574111}
   Player1: {fileID: 1507941743}
   choice: {fileID: 1338436361}
+  popup: {fileID: 2147321566}
   num_enemies: 0
   damage: 0
 --- !u!1 &1924609373
@@ -10480,8 +10495,102 @@ MonoBehaviour:
   Enemy3: {fileID: 137319235}
   Player1: {fileID: 1507941743}
   choice: {fileID: 1338436361}
+  popup: {fileID: 2147321566}
   num_enemies: 0
   damage: 0
+--- !u!1001 &2015322614
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 832891488}
+    m_Modifications:
+    - target: {fileID: 5911548165256176657, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+      propertyPath: m_text
+      value: testing
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911548165256176657, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911548165256176657, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911548165256176660, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911548165256176663, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 329
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911548165256176663, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 267
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911548166018433572, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911548166018433572, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.3546205
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911548166018433572, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.3546205
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911548166018433572, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.3546205
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911548166018433572, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -714.3418
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911548166018433572, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -714.3418
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911548166018433572, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911548166018433572, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911548166018433572, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911548166018433572, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911548166018433572, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911548166018433572, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911548166018433572, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911548166018433572, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911548166018433573, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+      propertyPath: m_Name
+      value: PopupManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
 --- !u!1 &2034292590
 GameObject:
   m_ObjectHideFlags: 0
@@ -10858,6 +10967,7 @@ MonoBehaviour:
   Enemy3: {fileID: 827711335}
   Player1: {fileID: 1507941743}
   choice: {fileID: 1338436361}
+  popup: {fileID: 2147321566}
   num_enemies: 0
   damage: 0
 --- !u!1 &2075815546
@@ -10986,6 +11096,7 @@ MonoBehaviour:
   Enemy3: {fileID: 1402663437}
   Player1: {fileID: 1507941743}
   choice: {fileID: 1338436361}
+  popup: {fileID: 2147321566}
   num_enemies: 0
   damage: 0
 --- !u!1 &2080772328
@@ -11487,6 +11598,7 @@ MonoBehaviour:
   Enemy3: {fileID: 1912901313}
   Player1: {fileID: 1507941743}
   choice: {fileID: 1338436361}
+  popup: {fileID: 2147321566}
   num_enemies: 0
   damage: 0
 --- !u!1 &2110675008
@@ -11922,6 +12034,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2147321566 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5911548166018433573, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+  m_PrefabInstance: {fileID: 2015322614}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2147321567 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5911548166018433572, guid: 8de1a9f6bd7cc4ebeb663d150870ca55, type: 3}
+  m_PrefabInstance: {fileID: 2015322614}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &70090637638222870
 Transform:
   m_ObjectHideFlags: 0
