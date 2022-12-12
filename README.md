@@ -3,9 +3,9 @@ Legend of Densmore is 25 Bit LLC's brand new dungeon-crawler based off the popul
 
 # The Group Members
 Kevin McConnell - <br>
-Diego - 
-Howell Xia - 
-Fadi Kidess - 
+Diego - <br>
+Howell Xia - <br>
+Fadi Kidess - <br>
 Ivan Garcia - fayker@bu.edu
 
 # Installation
