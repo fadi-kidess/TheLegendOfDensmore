@@ -14,7 +14,7 @@ public class GoToBoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((player.transform.position.x > 25 && player.transform.position.y > 15) && (player.transform.position.x < 35 && player.transform.position.y < 25)){
+        if((player.transform.position.x > 29.22f && player.transform.position.y >12.8f) && (player.transform.position.x < 35)){
             SceneManager.LoadScene("Level1Fadi");
         }
     }

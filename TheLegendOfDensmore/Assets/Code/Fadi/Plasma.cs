@@ -9,7 +9,7 @@ public class Plasma : MonoBehaviour
 	public int damage;
     void Start()
     {
-         Destroy(gameObject, 3);
+         Destroy(gameObject, 1.50f);
 		 transform.SetParent(null);
     }
 
